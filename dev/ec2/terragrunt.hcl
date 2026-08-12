@@ -1,7 +1,7 @@
 include "root" { path = find_in_parent_folders("root.hcl") }
 
 terraform {
-  source = "git::https://github.com/s6peter/platform-team.git//modules/ec2?ref=v1.2.0"
+  source = "git::https://github.com/s6peter/platform-team.git//modules/ec2?ref=v1.3.0"
 }
 
 locals {
