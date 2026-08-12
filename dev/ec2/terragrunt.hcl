@@ -1,7 +1,7 @@
 include "root" { path = find_in_parent_folders("root.hcl") }
 
 terraform {
-  source = "git::https://github.com/s6peter/platform-team.git//modules/ec2?ref=v1.0.0"
+  source = "git::https://github.com/s6peter/platform-team.git//modules/ec2?ref=v1.2.0"
 }
 
 locals {
@@ -31,4 +31,5 @@ inputs = {
   subnet_id            = "subnet-0a1b2c3d4e5f6a7b8"
   security_group_ids   = [dependency.sg.outputs.sg_id]
   iam_instance_profile = dependency.iam.outputs.instance_profile_name
+  monitoring           = true
 }
