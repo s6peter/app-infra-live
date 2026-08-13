@@ -59,6 +59,15 @@ jobs:
         tg_version: "1.1.2"
         tf_path: terraform
 
+
+    - name: Initialize Terragrunt backend
+      run: |
+         terragrunt \
+           --working-dir dev \
+           --non-interactive \
+           run --all \
+           -- init -reconfigure -input=false -no-color
+
     - name: Terragrunt plan
       run: |
         terragrunt \
