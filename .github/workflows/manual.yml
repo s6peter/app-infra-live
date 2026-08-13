@@ -11,6 +11,11 @@ on:
   pull_request: 
   workflow_dispatch:
 
+
+permissions:
+    contents: read
+    id-token: write
+
       
     
 
@@ -23,10 +28,18 @@ jobs:
     - name: code checkout
       uses: actions/checkout@v7
 
-    - name:
-      run: |
-         ls
-         cat README.md
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c # v6.2.3
+      with:
+          role-to-assume: arn:aws:iam::730335466485:role/actions-terraform-ci
+          aws-region: eu-west-1
+          role-session-name: terraform-${{ github.run_id }}
+          allowed-account-ids: "730335466485"
+
+    - name: Verify AWS identity
+      run: aws sts get-caller-identity
+
 
 
     - name: Setup Terraform
@@ -49,13 +62,3 @@ jobs:
         run --all \
         --out-dir "$GITHUB_WORKSPACE/tfplans/dev" \
         -- plan -input=false -no-color
-
-
-
-
-
-        
-    
-
-
-   
