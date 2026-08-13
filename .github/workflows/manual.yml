@@ -32,7 +32,11 @@ jobs:
       
     - name: Gruntwork Terragrunt
       uses: gruntwork-io/terragrunt-action@8c1d96b76d445fd2e41475a3f0b63dcd1d9cc077
+      with:
+         tg_version: v1.1.2
 
+
+  
   
 
     - name:  terragrunt plan
