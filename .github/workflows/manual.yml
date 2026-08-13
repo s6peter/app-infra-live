@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+  pull_request: 
   workflow_dispatch:
 
       
@@ -26,6 +27,11 @@ jobs:
       run: |
          ls
          cat README.md
+
+    - name:  terragrunt plan
+      run: | 
+         terragrunt init --terraform-non-interactive
+         terragrunt plan --out=tfplan --terraform-non-interactive
     
     
     
