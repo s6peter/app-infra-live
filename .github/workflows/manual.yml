@@ -27,13 +27,24 @@ jobs:
       run: |
          ls
          cat README.md
+    - name: HashiCorp - Setup Terraform
+      uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1
+      
+    - name: Gruntwork Terragrunt
+      uses: gruntwork-io/terragrunt-action@8c1d96b76d445fd2e41475a3f0b63dcd1d9cc077
+
+  
 
     - name:  terragrunt plan
       run: | 
          terragrunt init --terraform-non-interactive
          terragrunt plan --out=tfplan --terraform-non-interactive
-    
-    
+
+
+
+
+
+        
     
 
 
