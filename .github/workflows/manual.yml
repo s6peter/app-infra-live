@@ -8,12 +8,15 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+  workflow_dispatch:
+
       
     
 
 
 jobs:
-  greet:
+  terraform_workflow:
     runs-on: ubuntu-latest
     
     steps:
