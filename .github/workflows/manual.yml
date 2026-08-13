@@ -22,5 +22,13 @@ jobs:
     - name: code checkout
       uses: actions/checkout@v7
 
+    - name:
+      run: |
+         ls
+         cd app-infra-live
+    
+    
+    
+
 
    
