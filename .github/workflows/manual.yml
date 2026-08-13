@@ -40,10 +40,10 @@ jobs:
   
   
 
-    - name:  terragrunt plan
-      run: | 
-         terragrunt--working-dir  dev init --terraform-non-interactive
-         terragrunt  --working-dir  dev plan --out=tfplan --terraform-non-interactive
+    - name: Terragrunt plan
+      run: |
+        terragrunt --working-dir dev --non-interactive run -- init -input=false
+        terragrunt --working-dir dev --non-interactive run -- plan -input=false -out=tfplan
 
 
 
