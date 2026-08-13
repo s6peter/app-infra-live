@@ -15,5 +15,10 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
+    
+    steps:
+    - name: code checkout
+      uses: actions/checkout@v7
+
 
    
