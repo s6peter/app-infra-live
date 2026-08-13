@@ -25,7 +25,7 @@ jobs:
     - name:
       run: |
          ls
-         cd app-infra-live
+         cat README.md
     
     
     
