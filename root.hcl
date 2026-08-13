@@ -15,14 +15,15 @@ EOF
 generate "backend" {
   path      = "backend.tf"
   if_exists = "overwrite_terragrunt"
-  contents  = <<EOF
+
+  contents = <<EOF
 terraform {
   backend "s3" {
-    bucket         = "s6peter-tg-state-152617279670"
-    key            = "${path_relative_to_include()}/terraform.tfstate"
-    region         = "eu-west-1"
-    encrypt        = true
-    dynamodb_table = "terraform-locks"
+    bucket       = "s6peter-tg-state-152617279670"
+    key          = "${path_relative_to_include()}/terraform.tfstate"
+    region       = "eu-west-1"
+    encrypt      = true
+    use_lockfile = true
   }
 }
 EOF
